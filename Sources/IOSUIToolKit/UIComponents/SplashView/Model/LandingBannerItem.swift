@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // MARK: - LandingBannerItem
 
@@ -21,7 +22,7 @@ public struct LandingBannerItem {
     var description: String
 
     /// The image name of the banner item.
-    var image: String
+    var image: Image
 
     // MARK: - Initializer
 
@@ -31,11 +32,9 @@ public struct LandingBannerItem {
     ///   - title: The title of the banner item.
     ///   - description: The description of the banner item.
     ///   - image: The image name of the banner item.
-    public init(title: String, description: String, image: String) {
+    public init(title: String, description: String, image: Image) {
         self.title = title
         self.description = description
         self.image = image
     }
 }
-
-

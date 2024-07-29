@@ -24,7 +24,7 @@ public struct LandingBannerView: View {
     // MARK: - Properties
 
     /// The image to display in the banner.
-    var image: String
+    var image: Image
 
     /// The heading text of the banner.
     var heading: String
@@ -70,7 +70,7 @@ public struct LandingBannerView: View {
     ///   - heading: The heading text of the banner.
     ///   - subHeading: The subheading text of the banner.
     ///   - textColor: The color of the text in the banner. The default value is `.white`.
-    public init(image: String, heading: String, subHeading: String, textColor: Color = .white) {
+    public init(image: Image, heading: String, subHeading: String, textColor: Color = .white) {
         self.image = image
         self.heading = heading
         self.subHeading = subHeading
@@ -108,7 +108,7 @@ public struct LandingBannerView: View {
     /// - Returns: A view that displays the imageView
     @ViewBuilder
     private func imageView() -> some View {
-        Image(image)
+       image
             .resizable()
             .frame(height: Constants.imageHeight)
             .padding(.bottom, Constants.bottomPadding)
