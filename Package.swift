@@ -12,13 +12,22 @@ let package = Package(
             name: "IOSUIToolKit",
             targets: ["IOSUIToolKit"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/SimplyDanny/SwiftLintPlugins.git", branch: "main"),
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "IOSUIToolKit"),
+            name: "IOSUIToolKit",
+            plugins: [
+                .plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLintPlugins")
+            ]),
         .testTarget(
             name: "IOSUIToolKitTests",
-            dependencies: ["IOSUIToolKit"]),
+            dependencies: ["IOSUIToolKit"],
+            plugins: [
+                .plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLintPlugins")
+            ]),
     ]
 )
