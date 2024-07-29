@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "iosuitoolkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/murali-elite/iOSUIToolKit.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0b266e6a74073203baa65590ab3f802657c0e6e5"
+      }
+    }
+  ],
+  "version" : 2
+}

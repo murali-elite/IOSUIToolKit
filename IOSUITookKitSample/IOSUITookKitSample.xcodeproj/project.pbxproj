@@ -11,6 +11,8 @@
 		6A2520812C57B20200BC3A62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2520802C57B20200BC3A62 /* ContentView.swift */; };
 		6A2520832C57B20300BC3A62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A2520822C57B20300BC3A62 /* Assets.xcassets */; };
 		6A2520862C57B20300BC3A62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A2520852C57B20300BC3A62 /* Preview Assets.xcassets */; };
+		6A25208E2C57B26800BC3A62 /* IOSUIToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A25208D2C57B26800BC3A62 /* IOSUIToolKit */; };
+		6A2520902C57B2B900BC3A62 /* LoginViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25208F2C57B2B900BC3A62 /* LoginViewComponents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,7 @@
 		6A2520802C57B20200BC3A62 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6A2520822C57B20300BC3A62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A2520852C57B20300BC3A62 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6A25208F2C57B2B900BC3A62 /* LoginViewComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewComponents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A25208E2C57B26800BC3A62 /* IOSUIToolKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +55,7 @@
 		6A25207D2C57B20200BC3A62 /* IOSUITookKitSample */ = {
 			isa = PBXGroup;
 			children = (
+				6A25208F2C57B2B900BC3A62 /* LoginViewComponents.swift */,
 				6A25207E2C57B20200BC3A62 /* IOSUITookKitSampleApp.swift */,
 				6A2520802C57B20200BC3A62 /* ContentView.swift */,
 				6A2520822C57B20300BC3A62 /* Assets.xcassets */,
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = IOSUITookKitSample;
+			packageProductDependencies = (
+				6A25208D2C57B26800BC3A62 /* IOSUIToolKit */,
+			);
 			productName = IOSUITookKitSample;
 			productReference = 6A25207B2C57B20200BC3A62 /* IOSUITookKitSample.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = 6A2520722C57B20200BC3A62;
+			packageReferences = (
+				6A25208C2C57B26800BC3A62 /* XCRemoteSwiftPackageReference "iOSUIToolKit" */,
+			);
 			productRefGroup = 6A25207C2C57B20200BC3A62 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A2520812C57B20200BC3A62 /* ContentView.swift in Sources */,
+				6A2520902C57B2B900BC3A62 /* LoginViewComponents.swift in Sources */,
 				6A25207F2C57B20200BC3A62 /* IOSUITookKitSampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +354,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6A25208C2C57B26800BC3A62 /* XCRemoteSwiftPackageReference "iOSUIToolKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/murali-elite/iOSUIToolKit.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6A25208D2C57B26800BC3A62 /* IOSUIToolKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A25208C2C57B26800BC3A62 /* XCRemoteSwiftPackageReference "iOSUIToolKit" */;
+			productName = IOSUIToolKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6A2520732C57B20200BC3A62 /* Project object */;
 }
