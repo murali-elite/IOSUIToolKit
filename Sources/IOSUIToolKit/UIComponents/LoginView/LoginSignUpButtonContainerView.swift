@@ -43,7 +43,7 @@ public struct LoginSignUpButtonContainerView: View {
     }
 
     /// Creates an instance of `LoginSignUpContainerView`.
-    public init(assets: LoginSignUpButtonAssetsProtocol = LoginSignUpButtonAssets(),
+    public init(assets: LoginSignUpButtonAssetsProtocol,
                 primaryAction: @escaping () -> Void,
                 secondayAction: @escaping () -> Void) {
         self.assets = assets

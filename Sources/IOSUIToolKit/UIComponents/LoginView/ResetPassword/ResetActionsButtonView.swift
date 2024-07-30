@@ -45,7 +45,7 @@ public struct ResetActionsButtonView: View {
     }
 
     /// Creates an instance of `ResetSubmitCancelButtonView`.
-    public init(assets: ResetPasswordAssetsProtocol = ResetPasswordAssets(),
+    public init(assets: ResetPasswordAssetsProtocol,
                 submitAction: @escaping () -> Void,
                 cancelAction: @escaping () -> Void) {
         self.assets = assets

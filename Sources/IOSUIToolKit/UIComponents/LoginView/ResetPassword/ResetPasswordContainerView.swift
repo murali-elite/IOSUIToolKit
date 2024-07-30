@@ -78,7 +78,7 @@ public struct ResetPasswordContainerView: View {
             }
             .padding(.bottom, Constants.padding)
 
-            ResetActionsButtonView(submitAction: submitAction, cancelAction: cancelAction)
+            ResetActionsButtonView(assets: assets, submitAction: submitAction, cancelAction: cancelAction)
         }
         .padding()
     }
@@ -98,7 +98,7 @@ public struct ResetPasswordContainerView: View {
                 email: Binding<String>,
                 location: Binding<String>,
                 locations: [String],
-                assets: ResetPasswordAssetsProtocol = ResetPasswordAssets(),
+                assets: ResetPasswordAssetsProtocol,
                 handler: @escaping SelectedElementClouser = { _, _ in }) {
         self.assets = assets
         self._email = email

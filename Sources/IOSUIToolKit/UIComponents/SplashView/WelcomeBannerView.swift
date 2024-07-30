@@ -44,7 +44,7 @@ public struct WelcomeBannerView: View {
     ///   - assets: The assets contains color for the components.
     public init(title: String,
                 secondaryTitle: String,
-                assets: LoginContainerAssetsProtocol = LoginContainerAssets()) {
+                assets: LoginContainerAssetsProtocol) {
         self.title = title
         self.secondaryTitle = secondaryTitle
         self.assets = assets

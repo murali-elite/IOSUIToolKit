@@ -54,7 +54,7 @@ public struct LoginTitleView: View {
     ///   - textColor: The color of the text. The default value is `.white`.
     public init(title: String,
                 subTitle: String,
-                assets: LoginTitleAsstesProtocol = LoginTitleAssets()) {
+                assets: LoginTitleAsstesProtocol) {
         self.title = title
         self.subTitle = subTitle
         self.assets = assets
