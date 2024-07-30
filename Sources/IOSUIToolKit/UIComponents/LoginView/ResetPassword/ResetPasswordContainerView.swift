@@ -93,12 +93,12 @@ public struct ResetPasswordContainerView: View {
     ///   - locations: A list of location options to display in the dropdown.
     ///   - assets: An object that provides assets used in the reset password view. Defaults to `ResetPasswordAssets()`.
     ///   - handler: A closure that is called when a location is selected.
-    public init(submitAction: @escaping () -> Void,
-                cancelAction: @escaping () -> Void,
-                email: Binding<String>,
+    public init(email: Binding<String>,
                 location: Binding<String>,
                 locations: [String],
                 assets: ResetPasswordAssetsProtocol,
+                submitAction: @escaping () -> Void,
+                cancelAction: @escaping () -> Void,
                 handler: @escaping SelectedElementClouser = { _, _ in }) {
         self.assets = assets
         self._email = email
