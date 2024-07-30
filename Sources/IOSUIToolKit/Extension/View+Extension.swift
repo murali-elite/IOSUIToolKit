@@ -67,7 +67,7 @@ extension View {
                                      elements: [String],
                                      textColor: Color = .black,
                                      tintColor: Color = .gray,
-                                     selectedElement: @escaping SelectedElementClouser) -> some View {
+                                     selectedElement: @escaping SelectedElementClouser = { _, _ in }) -> some View {
         modifier(
             DropDownViewModifier(title: title,
                                  elements: elements,
@@ -103,4 +103,3 @@ extension View {
         self.modifier(UnderlineModifier(backgroundColor: backgroundColor))
     }
 }
-

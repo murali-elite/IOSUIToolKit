@@ -64,4 +64,3 @@ public struct WelcomeBannerView: View {
             .foregroundColor(assets.headingTextColor)
     }
 }
-

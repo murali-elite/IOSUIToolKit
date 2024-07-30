@@ -1,5 +1,5 @@
 //  LoginSignUpButtonContainerView.swift
-//  CalixIOSUIToolkit
+//  IOSUIToolkit
 //
 //  Created by labmacuser3 on 7/21/24.
 //  Copyright © 2024 Calix Inc. All rights reserved.
@@ -63,4 +63,3 @@ public struct LoginSignUpButtonContainerView: View {
         .buttonStyleViewModifier(backgroundColor: assets.loginBackgroundColor)
     }
 }
-

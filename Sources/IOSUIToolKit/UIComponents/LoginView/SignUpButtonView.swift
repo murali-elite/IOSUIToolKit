@@ -105,4 +105,3 @@ public struct SignUpButtonView: View {
             .foregroundColor(buttonTextColor)
     }
 }
-

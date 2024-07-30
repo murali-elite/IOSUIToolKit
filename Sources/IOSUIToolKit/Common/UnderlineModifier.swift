@@ -7,12 +7,38 @@
 
 import SwiftUI
 
+/// A `ViewModifier` that adds an underline to a view.
+///
+/// This modifier draws a line beneath the view with the specified background color.
 public struct UnderlineModifier: ViewModifier {
-    var backgroundColor: Color
+    // MARK: - Constants
 
+    private enum Constants {
+        static let height: CGFloat = 1
+        static let offsetX: CGFloat = 0
+        static let offsetY: CGFloat = 3
+    }
+
+    // MARK: - Properties
+
+    /// The color of the underline.
+    public var backgroundColor: Color
+
+    // MARK: - Initializer
+
+    /// Initializes an `UnderlineModifier` with a specified background color.
+    ///
+    /// - Parameter backgroundColor: The color of the underline.
     public init(backgroundColor: Color) {
         self.backgroundColor = backgroundColor
     }
+
+    // MARK: - ViewModifier
+
+    /// Applies the underline modifier to the given view.
+    ///
+    /// - Parameter content: The view to which the underline is applied.
+    /// - Returns: A view with an underline applied.
     public func body(content: Content) -> some View {
         content
             .background(
@@ -20,9 +46,9 @@ public struct UnderlineModifier: ViewModifier {
                     VStack {
                         Spacer()
                         Rectangle()
-                            .frame(height: 1)
+                            .frame(height: Constants.height)
                             .foregroundColor(backgroundColor)
-                            .offset(x: 0, y: 3)
+                            .offset(x: Constants.offsetX, y: Constants.offsetY)
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .bottom)
                 }

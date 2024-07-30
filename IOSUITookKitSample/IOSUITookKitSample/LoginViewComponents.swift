@@ -20,6 +20,8 @@ struct LoginComponentsView: View {
     @State private var detentHeight: CGFloat = 0
     private var locations: [String] = ["USA", "Canada", "France", "Germany", "Africa"]
     
+    
+    
     var body: some View {
         NavigationStack {
             List {
@@ -58,53 +60,72 @@ struct LoginComponentsView: View {
                     .padding()
                     .background(.blue)
                     .sheet(isPresented: $isPopupPresented) {
-                        ResetPasswordContainerView(email: $resetEmail, location: $resetLocation, locations: locations, handler: {_,_ in}, submitAction: {}, cancelAction: {})
-                            .readHeight()
-                            .onPreferenceChange(HeightPreferenceKey.self) { height in
-                                if let height {
-                                    detentHeight = height
-                                }
+                        ResetPasswordContainerView(email: $resetEmail,
+                                                   location: $resetLocation,
+                                                   locations: locations,
+                                                   handler: {_,_ in},
+                                                   submitAction: {
+                            
+                        },
+                                                   cancelAction: {
+                            
+                        })
+                        .readHeight()
+                        .onPreferenceChange(HeightPreferenceKey.self) { height in
+                            if let height {
+                                detentHeight = height
                             }
-                            .presentationDetents([.height(detentHeight)])
-                            .presentationDragIndicator(.visible)
-                        
+                        }
                     }
+                    .presentationDetents([.height(detentHeight)])
+                    .presentationDragIndicator(.visible)
                     
                 }
                 
-                NavigationLink("Login Sign Up Button View") {
-                    LoginSignUpButtonContainerView(primaryAction: {
-                        print("Login Button Tapped ...")
-                    }, secondayAction: {
-                        print("Sign Up Button Tapped ...")
-                    })
-                        .padding()
-                        .background(.blue)
-                }
-                
-                
-                NavigationLink("Location Drop Down View") {
-                    Text("Location")
-                        .foregroundColor(.white)
-                        .font(.system(size: 14))
-                        .dropDownViewModifier(title: $location,
-                                              elements: locations,
-                                              textColor: .white,
-                                              tintColor: .white) { _, _ in
-                        }
-                                              .padding()
-                                              .background(.blue)
-                }
-                
-                
-                
             }
+            
+            NavigationLink("Login Sign Up Button View") {
+                LoginSignUpButtonContainerView(primaryAction: {
+                    print("Login Button Tapped ...")
+                }, secondayAction: {
+                    print("Sign Up Button Tapped ...")
+                })
+                .padding()
+                .background(.blue)
+            }
+            
+            
+            NavigationLink("Location Drop Down View") {
+                Text(AppString.topText.localized())
+                    .foregroundColor(.white)
+                    .font(.system(size: 14))
+                    .dropDownViewModifier(title: $location,
+                                          elements: locations,
+                                          textColor: .white,
+                                          tintColor: .white) { _, _ in
+                    }
+                                          .padding()
+                                          .background(.blue)
+            }
+            
         }
         .navigationTitle("Navigation")
         
     }
+    
 }
 #Preview {
     LoginComponentsView()
 }
 
+
+
+
+enum AppString: String {
+    case heading = "Welcome"
+    case subHeading = "CommandIQ"
+    
+    func localized() -> String {
+        NSLocalizedString(rawValue, comment: "")
+    }
+}

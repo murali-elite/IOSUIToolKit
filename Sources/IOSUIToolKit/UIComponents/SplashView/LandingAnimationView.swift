@@ -73,9 +73,3 @@ public struct LandingAnimationView: View {
         self.items = items
     }
 }
-
-
-
-
-
-

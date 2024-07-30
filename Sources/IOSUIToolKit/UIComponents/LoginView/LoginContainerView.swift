@@ -65,7 +65,7 @@ public struct LoginContainerView: View {
                     isPopupPresented: Binding<Bool>,
                     locations: [String],
                     assets: LoginContainerAssetsProtocol = LoginContainerAssets(),
-                    handler: @escaping SelectedElementClouser) {
+                    handler: @escaping SelectedElementClouser = { _, _ in }) {
             self._email = email
             self._password = password
             self._location = location

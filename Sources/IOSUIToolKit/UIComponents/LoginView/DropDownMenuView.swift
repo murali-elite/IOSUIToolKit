@@ -81,4 +81,3 @@ public struct DropDownMenuView: View {
             .frame(maxWidth: .infinity, minHeight: Constants.buttonHeight, alignment: .leading)
     }
 }
-

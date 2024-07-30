@@ -1,6 +1,6 @@
 //
 //  SecureFieldViewModifier.swift
-//  CalixIOSUIToolkit
+//  IOSUIToolkit
 //
 //  Created by labmacuser3 on 7/10/24.
 //  Copyright © 2024 Calix Inc. All rights reserved.
@@ -89,4 +89,3 @@ public struct SecureFieldViewModifier: ViewModifier {
         }
     }
 }
-
