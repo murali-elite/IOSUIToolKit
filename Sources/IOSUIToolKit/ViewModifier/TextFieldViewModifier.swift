@@ -29,6 +29,8 @@ public struct TextFieldViewModifier: ViewModifier {
 
     /// The color of the divider.
     var tintColor: Color
+    
+    var titleFont: Font
 
     // MARK: - Private Methods
 
@@ -38,7 +40,7 @@ public struct TextFieldViewModifier: ViewModifier {
     @ViewBuilder
     private func titleText() -> some View {
         Text(title)
-            .font(.system(size: Constants.titleFontSize, weight: Constants.titleFontWeight))
+            .font(titleFont)
             .foregroundColor(titleColor)
     }
 

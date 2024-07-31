@@ -8,6 +8,7 @@
 
 import SwiftUI
 import IOSUIToolKit
+import Combine
 
 struct LoginComponentsView: View {
     @State var email: String = ""
@@ -21,12 +22,16 @@ struct LoginComponentsView: View {
     private var locations: [String] = ["USA", "Canada", "France", "Germany", "Africa"]
     
     
+    private var emailPublisher = PassthroughSubject<String, Never>()
+    
     
     var body: some View {
         NavigationStack {
             List {
                 NavigationLink("Welcom Banner View") {
-                    WelcomeBannerView(title: "Welcome", secondaryTitle: "CommandIQ")
+                    WelcomeBannerView(title: "Welcome",
+                                      secondaryTitle: "CommandIQ",
+                                      assets: LoginContainerAssets())
                         .padding()
                         .background(.blue)
                 }
@@ -34,8 +39,8 @@ struct LoginComponentsView: View {
                 NavigationLink("Login Title View") {
                     LoginTitleView(
                         title: "Login",
-                        subTitle: "Everything you need to secure and control your home network and connected devices."
-                    )
+                        subTitle: "Everything you need to secure and control your home network and connected devices.",
+                        assets: LoginTitleAssets())
                     .padding()
                     .background(.blue)
                 }
@@ -56,14 +61,13 @@ struct LoginComponentsView: View {
                                        location: $location,
                                        isPasswordHidden: $isPasswordHidden,
                                        isPopupPresented: $isPopupPresented,
-                                       locations: locations, handler: {_,_ in})
+                                       locations: locations, assets: LoginContainerAssets())
                     .padding()
                     .background(.blue)
                     .sheet(isPresented: $isPopupPresented) {
                         ResetPasswordContainerView(email: $resetEmail,
                                                    location: $resetLocation,
-                                                   locations: locations,
-                                                   handler: {_,_ in},
+                                                   locations: locations, assets: ResetPasswordAssets(),
                                                    submitAction: {
                             
                         },
@@ -84,29 +88,28 @@ struct LoginComponentsView: View {
                 
             }
             
-            NavigationLink("Login Sign Up Button View") {
-                LoginSignUpButtonContainerView(primaryAction: {
-                    print("Login Button Tapped ...")
-                }, secondayAction: {
-                    print("Sign Up Button Tapped ...")
-                })
-                .padding()
-                .background(.blue)
-            }
+            TextField("", text: $email)
+            .onChange(of: email, {
+               //∫ print("Changes", email)
+            })
+            .frame(height: 50)
+            .border(.blue)
+            .padding()
             
             
-            NavigationLink("Location Drop Down View") {
-                Text(AppString.topText.localized())
-                    .foregroundColor(.white)
-                    .font(.system(size: 14))
-                    .dropDownViewModifier(title: $location,
-                                          elements: locations,
-                                          textColor: .white,
-                                          tintColor: .white) { _, _ in
-                    }
-                                          .padding()
-                                          .background(.blue)
-            }
+//            TextField("Email", text: $email)
+//                       .onReceive(emailPublisher) { email in
+//                           //self.isValidEmail = email.isValidEmail
+//                           print("Validation", email)
+//                       }
+//                       .onChange(of: email) { newValue in
+//                           emailPublisher.send(newValue)
+//                       }
+//            
+            
+            Spacer()
+            
+          
             
         }
         .navigationTitle("Navigation")
@@ -120,12 +123,3 @@ struct LoginComponentsView: View {
 
 
 
-
-enum AppString: String {
-    case heading = "Welcome"
-    case subHeading = "CommandIQ"
-    
-    func localized() -> String {
-        NSLocalizedString(rawValue, comment: "")
-    }
-}

@@ -28,15 +28,31 @@ public struct LoginContainerView: View {
     var locations: [String]
     /// A closure that is called when a location is selected.
     public var handler: SelectedElementClouser
+    @State private var isValidEmail: Bool = true
+   
 
     /// The content and behavior of the `LoginContainerView`.
     public var body: some View {
         VStack(spacing: Constants.verticalSpace) {
             // Email Input field
-            TextField("", text: $email)
-                .textFieldViewModifier(title: LoginPageString.email.localized(),
-                                       titleColor: assets.headingTextColor,
-                                       tintColor: assets.tintColor)
+            HStack {
+                TextField("", text: $email)
+//                    .onChange(of: email) { _ in
+//                     
+//                    isValidEmail = email.isValidEmail
+//                    print("Validation", isValidEmail, email)
+//                }
+                .textContentType(.emailAddress)
+                    .forgroundColor(color: .green)
+
+                checkMarkImage()
+                    .forgroundColor(color: isValidEmail ? .green : .red)
+            }
+            .textFieldViewModifier(title: LoginPageString.email.localized(),
+                                   titleFont: .caption,
+                                   titleColor: assets.headingTextColor,
+                                   tintColor: assets.tintColor)
+
             // Password Input field
             passwordContainerView()
 
@@ -48,33 +64,43 @@ public struct LoginContainerView: View {
                 locationView()
             }
         }
+        
+        TextField("TextField", text: $email) { _ in
+            print("Editing...", email)
+        } onCommit: {
+            print("OnCommit...", email)
+        }
+        .frame(height: 50)
+        .border(Color.black)
+        .background(Color.gray)
+
     }
 
     /// Creates an instance of `LoginContainerView`.
-        ///
-        /// - Parameters:
-        ///   - email: A binding to the email address.
-        ///   - password: A binding to the password.
-        ///   - location: A binding to the selected location.
-        ///   - isPasswordHidden: A binding to a Boolean indicating if the password is hidden.
-        ///   - locations: An array of locations to be displayed in the dropdown.
-        public init(email: Binding<String>,
-                    password: Binding<String>,
-                    location: Binding<String>,
-                    isPasswordHidden: Binding<Bool>,
-                    isPopupPresented: Binding<Bool>,
-                    locations: [String],
-                    assets: LoginContainerAssetsProtocol,
-                    handler: @escaping SelectedElementClouser = { _, _ in }) {
-            self._email = email
-            self._password = password
-            self._location = location
-            self._isPasswordHidden = isPasswordHidden
-            self._isPopupPresented = isPopupPresented
-            self.locations = locations
-            self.assets = assets
-            self.handler = handler
-        }
+    ///
+    /// - Parameters:
+    ///   - email: A binding to the email address.
+    ///   - password: A binding to the password.
+    ///   - location: A binding to the selected location.
+    ///   - isPasswordHidden: A binding to a Boolean indicating if the password is hidden.
+    ///   - locations: An array of locations to be displayed in the dropdown.
+    public init(email: Binding<String>,
+                password: Binding<String>,
+                location: Binding<String>,
+                isPasswordHidden: Binding<Bool>,
+                isPopupPresented: Binding<Bool>,
+                locations: [String],
+                assets: LoginContainerAssetsProtocol,
+                handler: @escaping SelectedElementClouser = { _, _ in }) {
+        self._email = email
+        self._password = password
+        self._location = location
+        self._isPasswordHidden = isPasswordHidden
+        self._isPopupPresented = isPopupPresented
+        self.locations = locations
+        self.assets = assets
+        self.handler = handler
+    }
 
     @ViewBuilder
     private func forgotPasswordView() -> some View {
@@ -116,4 +142,47 @@ public struct LoginContainerView: View {
                                   tintColor: assets.tintColor,
                                   selectedElement: handler)
     }
+    
+    @ViewBuilder
+    private func checkMarkImage() -> some View {
+        if #available(iOS 14.0, *) {
+            Image(systemName: "checkmark")
+                .accessibilityLabel(Text(""))
+        } else {
+            Image(systemName: "checkmark")
+                .accessibility(label: Text(""))
+        }
+    }
 }
+
+
+
+extension String {
+    var isValidEmail: Bool {
+        NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").evaluate(with: self)
+    }
+}
+
+
+
+
+extension View {
+    func forgroundColor(color: Color) -> some View {
+        modifier(ForgroundColorModifier(color: color))
+    }
+}
+
+struct ForgroundColorModifier: ViewModifier {
+    var color: Color
+
+    func body(content: Content) -> some View {
+        if #available(iOS 15.0, *) {
+            content
+                .foregroundStyle(color)
+        } else {
+            content
+                .foregroundColor(color)
+        }
+    }
+}
+

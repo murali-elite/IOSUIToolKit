@@ -18,6 +18,7 @@ extension View {
     /// - Returns: A modified view with the specified title, title color, and tint color.
     public func textFieldViewModifier(
         title: String,
+        titleFont: Font = .subheadline,
         titleColor: Color = .black,
         tintColor: Color = .gray
     ) -> some View {
@@ -25,7 +26,8 @@ extension View {
             TextFieldViewModifier(
                 title: title,
                 titleColor: titleColor,
-                tintColor: tintColor
+                tintColor: tintColor,
+                titleFont: titleFont
             )
         )
     }
