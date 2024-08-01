@@ -28,30 +28,17 @@ public struct LoginContainerView: View {
     var locations: [String]
     /// A closure that is called when a location is selected.
     public var handler: SelectedElementClouser
-    @State private var isValidEmail: Bool = true
-   
 
     /// The content and behavior of the `LoginContainerView`.
     public var body: some View {
         VStack(spacing: Constants.verticalSpace) {
             // Email Input field
-            HStack {
-                TextField("", text: $email)
-//                    .onChange(of: email) { _ in
-//                     
-//                    isValidEmail = email.isValidEmail
-//                    print("Validation", isValidEmail, email)
-//                }
-                .textContentType(.emailAddress)
-                    .forgroundColor(color: .green)
-
-                checkMarkImage()
-                    .forgroundColor(color: isValidEmail ? .green : .red)
-            }
-            .textFieldViewModifier(title: LoginPageString.email.localized(),
-                                   titleFont: .caption,
-                                   titleColor: assets.headingTextColor,
-                                   tintColor: assets.tintColor)
+            TextField("", text: $email)
+                .textFieldViewModifier(title: LoginSignUpContainerString.email.localized(),
+                                       titleFont: assets.headingFont,
+                                       titleColor: assets.headingTextColor,
+                                       tintColor: assets.tintColor)
+                .foregroundColor(.red)
 
             // Password Input field
             passwordContainerView()
@@ -64,16 +51,6 @@ public struct LoginContainerView: View {
                 locationView()
             }
         }
-        
-        TextField("TextField", text: $email) { _ in
-            print("Editing...", email)
-        } onCommit: {
-            print("OnCommit...", email)
-        }
-        .frame(height: 50)
-        .border(Color.black)
-        .background(Color.gray)
-
     }
 
     /// Creates an instance of `LoginContainerView`.
@@ -104,7 +81,7 @@ public struct LoginContainerView: View {
 
     @ViewBuilder
     private func forgotPasswordView() -> some View {
-        Text(LoginPageString.forgotPassword.localized())
+        Text(LoginSignUpContainerString.forgotPassword.localized())
             .underlined(assets.tintColor)
             .accessibility(addTraits: .isButton)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -117,7 +94,7 @@ public struct LoginContainerView: View {
     @ViewBuilder
     private func passwordContainerView() -> some View {
         VStack {
-            PasswordTextFieldView(title: LoginPageString.password.localized(),
+            PasswordTextFieldView(title: LoginSignUpContainerString.password.localized(),
                                   password: $password,
                                   titleColor: assets.headingTextColor,
                                   tintColor: assets.tintColor)
@@ -133,7 +110,7 @@ public struct LoginContainerView: View {
 
     @ViewBuilder
     private func locationView() -> some View {
-        Text(LoginPageString.location.localized())
+        Text(LoginSignUpContainerString.location.localized())
             .foregroundColor(assets.headingTextColor)
             .font(.system(size: Constants.locationFontSize))
             .dropDownViewModifier(title: $location,
@@ -141,48 +118,6 @@ public struct LoginContainerView: View {
                                   textColor: assets.headingTextColor,
                                   tintColor: assets.tintColor,
                                   selectedElement: handler)
-    }
-    
-    @ViewBuilder
-    private func checkMarkImage() -> some View {
-        if #available(iOS 14.0, *) {
-            Image(systemName: "checkmark")
-                .accessibilityLabel(Text(""))
-        } else {
-            Image(systemName: "checkmark")
-                .accessibility(label: Text(""))
-        }
-    }
-}
-
-
-
-extension String {
-    var isValidEmail: Bool {
-        NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").evaluate(with: self)
-    }
-}
-
-
-
-
-extension View {
-    func forgroundColor(color: Color) -> some View {
-        modifier(ForgroundColorModifier(color: color))
-    }
-}
-
-struct ForgroundColorModifier: ViewModifier {
-    var color: Color
-
-    func body(content: Content) -> some View {
-        if #available(iOS 15.0, *) {
-            content
-                .foregroundStyle(color)
-        } else {
-            content
-                .foregroundColor(color)
-        }
     }
 }
 

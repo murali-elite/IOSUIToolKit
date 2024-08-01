@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  IOSUITookKitSample
+
+  Created by Murali moorthy on 8/1/24.
+  
+*/
+
+
+"splash_welcom" = "Welcome";
+"splash_app_name" = "CommandIQ";
+"splash_globel_network_title" = "Control Your internet and devices";
+"splash_globel_network_description" = "View and manage connectivity of all your devices";
+"splash_home_network_title" = "Manage your home";
+"splash_home_network_description" = "Group devices by the people who use them or the places they are located";
+"splash_security_network_title" = "Secure your network";
+"splash_security_network_description" = "Access your wireless password and view any security settings you have";
+"reset_password_title" = "Reset Password";
+"reset_button_submit" = "Submit";
+"reset_button_cancel" = "Cancel";
+"reset_password_description" = "Enter email address and choose location to reset password";
+// Login Container String
+"auth_first_name_title"= "First Name";
+"auth_last_name_title"= "Last Name";
+"auth_email_title"= "Email";
+"auth_password_title"= "Password";
+"auth_location_title"= "Location";
+"auth_forgot_password_title"= "Forgot Password";
+"auth_login"= "Log In";
+"auth_signup"= "Sign Up";
+"auth_signup_header"= "Don't have a Login?";
+"auth_login_header"= "Already registered?";

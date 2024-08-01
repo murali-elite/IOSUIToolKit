@@ -9,47 +9,41 @@
 import SwiftUI
 import IOSUIToolKit
 
-/// Struct implementing the `LoginContainerAssets` protocol, providing default colors for a login container.
+/// A structure implementing the `LoginContainerAssets` protocol, providing default colors and fonts for a login container.
 struct LoginContainerAssets: LoginContainerAssetsProtocol {
-    /// Constants used for font sizes in the login container.
-    public enum Constants {
-        /// The font size for the heading.
-        public static let headerFontSize: CGFloat = 15
-        /// The font size for the input field.
-        public static let inputFieldFontSize: CGFloat = 16
-        /// The font size for the forgot password text.
-        public static let forgotPasswordFontSize: CGFloat = 14
-    }
-
     /// The font used for the heading text.
     public var headingFont: Font
+    
     /// The font used for the input field text.
     public var inputFieldFont: Font
+    
     /// The font used for the forgot password text.
     public var forgotPasswordFont: Font
+    
     /// The color of the heading text.
     public var headingTextColor: Color
-    /// The color of the heading text.
+    
+    /// The color of the input field text.
     public var inputFieldTextColor: Color
-    /// The color used for the initialization (if this is a typo, consider correcting it).
+    
+    /// The color used for the tint or accents in the login container.
     public var tintColor: Color
 
-    /// Initializes a `LoginContainerAssets` instance with specified colors and fonts.
+    /// Initializes a new `LoginContainerAssets` instance with default values.
+    ///
     /// - Parameters:
     ///   - headingTextColor: The color of the heading text. Defaults to `.white`.
-    ///   - tinitColor: The color used for initialization. Defaults to `.white`.
-    ///   - headingFont: The font used for the heading text.
-    ///     Defaults to a system font with a size of `15` and weight `.regular`.
-    ///   - inputFieldFont: The font used for the input field text.
-    ///     Defaults to a system font with a size of `16` and weight `.regular`.
-    ///   - forgotPasswordFont: The font used for the forgot password text.
-    ///     Defaults to a system font with a size of `14` and weight `.regular`.
-    init(headingTextColor: Color = .black,
-         tintColor: Color = .white,
-         headingFont: Font = .system(size: Constants.headerFontSize, weight: .regular),
-         inputFieldFont: Font = .system(size: Constants.inputFieldFontSize, weight: .regular),
-         forgotPasswordFont: Font = .system(size: Constants.forgotPasswordFontSize, weight: .regular),
-         inputFieldTextColor: Color = .white) {
+    ///   - tintColor: The color used for the tint or accents in the login container. Defaults to `.white`.
+    ///   - headingFont: The font used for the heading text. Defaults to `.headline`.
+    ///   - inputFieldFont: The font used for the input field text. Defaults to `.callout`.
+    ///   - forgotPasswordFont: The font used for the forgot password text. Defaults to `.subheadline`.
+    ///   - inputFieldTextColor: The color of the input field text. Defaults to `.white`.
+    public init(headingTextColor: Color = .white,
+                tintColor: Color = .white,
+                headingFont: Font = .headline,
+                inputFieldFont: Font = .callout,
+                forgotPasswordFont: Font = .subheadline,
+                inputFieldTextColor: Color = .white) {
         self.headingTextColor = headingTextColor
         self.tintColor = tintColor
         self.headingFont = headingFont

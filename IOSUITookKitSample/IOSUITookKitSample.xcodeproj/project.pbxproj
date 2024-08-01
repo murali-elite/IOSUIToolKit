@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6A1949F62C591AEA00881651 /* IOSUIToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A1949F52C591AEA00881651 /* IOSUIToolKit */; };
-		6A1949FC2C591B8400881651 /* LoginSignUpButtonAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1949F82C591B8400881651 /* LoginSignUpButtonAssets.swift */; };
+		6A1949FC2C591B8400881651 /* AuthButtonAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1949F82C591B8400881651 /* AuthButtonAssets.swift */; };
 		6A1949FD2C591B8400881651 /* ResetPasswordAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1949F92C591B8400881651 /* ResetPasswordAssets.swift */; };
 		6A1949FE2C591B8400881651 /* LoginContainerAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1949FA2C591B8400881651 /* LoginContainerAssets.swift */; };
 		6A1949FF2C591B8400881651 /* LoginTitleAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1949FB2C591B8400881651 /* LoginTitleAssets.swift */; };
 		6A194A012C5A114700881651 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A194A002C5A114700881651 /* SplashScreenView.swift */; };
 		6A194A042C5A118300881651 /* SplashScreenStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A194A032C5A118300881651 /* SplashScreenStrings.swift */; };
+		6A194A072C5A625F00881651 /* SignUpComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A194A062C5A625F00881651 /* SignUpComponentsView.swift */; };
+		6A194A0C2C5B8B7000881651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A194A0E2C5B8B7000881651 /* Localizable.strings */; };
 		6A25207F2C57B20200BC3A62 /* IOSUITookKitSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25207E2C57B20200BC3A62 /* IOSUITookKitSampleApp.swift */; };
 		6A2520812C57B20200BC3A62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2520802C57B20200BC3A62 /* ContentView.swift */; };
 		6A2520832C57B20300BC3A62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A2520822C57B20300BC3A62 /* Assets.xcassets */; };
@@ -22,12 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6A1949F82C591B8400881651 /* LoginSignUpButtonAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSignUpButtonAssets.swift; sourceTree = "<group>"; };
+		6A1949F82C591B8400881651 /* AuthButtonAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthButtonAssets.swift; sourceTree = "<group>"; };
 		6A1949F92C591B8400881651 /* ResetPasswordAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordAssets.swift; sourceTree = "<group>"; };
 		6A1949FA2C591B8400881651 /* LoginContainerAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginContainerAssets.swift; sourceTree = "<group>"; };
 		6A1949FB2C591B8400881651 /* LoginTitleAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTitleAssets.swift; sourceTree = "<group>"; };
 		6A194A002C5A114700881651 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		6A194A032C5A118300881651 /* SplashScreenStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenStrings.swift; sourceTree = "<group>"; };
+		6A194A062C5A625F00881651 /* SignUpComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpComponentsView.swift; sourceTree = "<group>"; };
+		6A194A0D2C5B8B7000881651 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6A25207B2C57B20200BC3A62 /* IOSUITookKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSUITookKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A25207E2C57B20200BC3A62 /* IOSUITookKitSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSUITookKitSampleApp.swift; sourceTree = "<group>"; };
 		6A2520802C57B20200BC3A62 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,7 +55,7 @@
 		6A1949F72C591B8400881651 /* LoginViewAssets */ = {
 			isa = PBXGroup;
 			children = (
-				6A1949F82C591B8400881651 /* LoginSignUpButtonAssets.swift */,
+				6A1949F82C591B8400881651 /* AuthButtonAssets.swift */,
 				6A1949F92C591B8400881651 /* ResetPasswordAssets.swift */,
 				6A1949FA2C591B8400881651 /* LoginContainerAssets.swift */,
 				6A1949FB2C591B8400881651 /* LoginTitleAssets.swift */,
@@ -66,6 +70,14 @@
 				6A194A032C5A118300881651 /* SplashScreenStrings.swift */,
 			);
 			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		6A194A052C5A624900881651 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				6A194A062C5A625F00881651 /* SignUpComponentsView.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		6A2520722C57B20200BC3A62 = {
@@ -87,6 +99,7 @@
 		6A25207D2C57B20200BC3A62 /* IOSUITookKitSample */ = {
 			isa = PBXGroup;
 			children = (
+				6A194A052C5A624900881651 /* SignUp */,
 				6A194A022C5A116B00881651 /* SplashScreen */,
 				6A1949F72C591B8400881651 /* LoginViewAssets */,
 				6A25208F2C57B2B900BC3A62 /* LoginViewComponents.swift */,
@@ -94,6 +107,7 @@
 				6A2520802C57B20200BC3A62 /* ContentView.swift */,
 				6A2520822C57B20300BC3A62 /* Assets.xcassets */,
 				6A2520842C57B20300BC3A62 /* Preview Content */,
+				6A194A0E2C5B8B7000881651 /* Localizable.strings */,
 			);
 			path = IOSUITookKitSample;
 			sourceTree = "<group>";
@@ -151,6 +165,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"en-GB",
 			);
 			mainGroup = 6A2520722C57B20200BC3A62;
 			packageReferences = (
@@ -171,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A2520862C57B20300BC3A62 /* Preview Assets.xcassets in Resources */,
+				6A194A0C2C5B8B7000881651 /* Localizable.strings in Resources */,
 				6A2520832C57B20300BC3A62 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,14 +203,26 @@
 				6A2520812C57B20200BC3A62 /* ContentView.swift in Sources */,
 				6A2520902C57B2B900BC3A62 /* LoginViewComponents.swift in Sources */,
 				6A194A042C5A118300881651 /* SplashScreenStrings.swift in Sources */,
-				6A1949FC2C591B8400881651 /* LoginSignUpButtonAssets.swift in Sources */,
+				6A1949FC2C591B8400881651 /* AuthButtonAssets.swift in Sources */,
 				6A1949FD2C591B8400881651 /* ResetPasswordAssets.swift in Sources */,
 				6A25207F2C57B20200BC3A62 /* IOSUITookKitSampleApp.swift in Sources */,
+				6A194A072C5A625F00881651 /* SignUpComponentsView.swift in Sources */,
 				6A194A012C5A114700881651 /* SplashScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6A194A0E2C5B8B7000881651 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A194A0D2C5B8B7000881651 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6A2520872C57B20300BC3A62 /* Debug */ = {

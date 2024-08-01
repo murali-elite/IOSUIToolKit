@@ -9,7 +9,7 @@
 import SwiftUI
 
 /// A view that displays a sign-up button with a heading and button text.
-public struct SignUpButtonView: View {
+public struct HeaderButtonView: View {
     // MARK: - Constants
 
     private enum Constants {

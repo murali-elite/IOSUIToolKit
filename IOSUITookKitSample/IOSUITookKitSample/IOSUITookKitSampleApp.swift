@@ -11,7 +11,7 @@ import SwiftUI
 struct IOSUITookKitSampleApp: App {
     var body: some Scene {
         WindowGroup {
-            SplashScreenView()
+            LoginComponentsView()
         }
     }
 }

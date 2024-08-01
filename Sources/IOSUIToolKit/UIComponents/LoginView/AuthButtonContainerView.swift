@@ -1,4 +1,4 @@
-//  LoginSignUpButtonContainerView.swift
+//  AuthButtonContainerView.swift
 //  IOSUIToolkit
 //
 //  Created by labmacuser3 on 7/21/24.
@@ -8,14 +8,14 @@
 import SwiftUI
 
 /// A view that provides login and sign-up buttons.
-public struct LoginSignUpButtonContainerView: View {
+public struct AuthButtonContainerView: View {
     // MARK: - Constants
     private enum Constants {
         static var verticalSpacing: CGFloat = 20
     }
 
     // MARK: - Properties
-    var assets: LoginSignUpButtonAssetsProtocol
+    var assets: AuthButtonAssetsProtocol
     var primaryAction: () -> Void
     var secondayAction: () -> Void
 
@@ -24,26 +24,26 @@ public struct LoginSignUpButtonContainerView: View {
         VStack(spacing: Constants.verticalSpacing) {
             // Display the login button with appropriate styling based on iOS version
             if #available(iOS 15.0, *) {
-                loginButtonView()
-                    .foregroundStyle(assets.loginForgroundColor)
+                primaryButtonView()
+                    .foregroundStyle(assets.primaryForegroundColor)
             } else {
-                loginButtonView()
+                primaryButtonView()
             }
 
             // Display the sign-up button
-            SignUpButtonView(
-                heading: LoginPageString.dontHaveALogIn.localized(),
-                buttonText: LoginPageString.signIn.localized(),
+            HeaderButtonView(
+                heading: LoginSignUpContainerString.dontHaveALogIn.localized(),
+                buttonText: LoginSignUpContainerString.signIn.localized(),
                 headingColor: assets.headingTextColor,
-                buttonTextColor: assets.signUpForgroundColor,
-                borderColor: assets.signUpBorderColor,
+                buttonTextColor: assets.secondaryForegroundColor,
+                borderColor: assets.secondaryBorderColor,
                 action: secondayAction
             )
         }
     }
 
     /// Creates an instance of `LoginSignUpContainerView`.
-    public init(assets: LoginSignUpButtonAssetsProtocol,
+    public init(assets: AuthButtonAssetsProtocol,
                 primaryAction: @escaping () -> Void,
                 secondayAction: @escaping () -> Void) {
         self.assets = assets
@@ -55,11 +55,11 @@ public struct LoginSignUpButtonContainerView: View {
     ///
     /// - Returns: A `Button` view configured to represent a login action.
     @ViewBuilder
-    private func loginButtonView() -> some View {
-        Button(LoginPageString.logIn.localized()) {
+    private func primaryButtonView() -> some View {
+        Button(LoginSignUpContainerString.logIn.localized()) {
             primaryAction()
         }
-        .foregroundColor(assets.loginForgroundColor)
-        .buttonStyleViewModifier(backgroundColor: assets.loginBackgroundColor)
+        .foregroundColor(assets.primaryForegroundColor)
+        .buttonStyleViewModifier(backgroundColor: assets.primaryBackgroundColor)
     }
 }

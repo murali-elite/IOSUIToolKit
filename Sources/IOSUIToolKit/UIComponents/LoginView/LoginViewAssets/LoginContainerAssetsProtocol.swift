@@ -12,16 +12,19 @@ import SwiftUI
 public protocol LoginContainerAssetsProtocol {
     /// The color of the heading text.
     var headingTextColor: Color { get set }
-
+    
+    /// The color of the input field text.
+    var inputFieldTextColor: Color { get set }
+    
     /// The color used for tints.
     var tintColor: Color { get set }
-
+    
     /// The font used for the heading text.
     var headingFont: Font { get set }
-
+    
     /// The font used for the input fields.
     var inputFieldFont: Font { get set }
-
+    
     /// The font used for the forgot password text.
     var forgotPasswordFont: Font { get set }
 }

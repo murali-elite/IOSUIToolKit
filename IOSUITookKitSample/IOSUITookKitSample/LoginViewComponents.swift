@@ -29,18 +29,18 @@ struct LoginComponentsView: View {
         NavigationStack {
             List {
                 NavigationLink("Welcom Banner View") {
-                    WelcomeBannerView(title: "Welcome",
-                                      secondaryTitle: "CommandIQ",
+                    WelcomeBannerView(title: SplashScreenStrings.welcom.localized(),
+                                      secondaryTitle: SplashScreenStrings.appName.localized(),
                                       assets: LoginContainerAssets())
                         .padding()
                         .background(.blue)
                 }
                 
                 NavigationLink("Login Title View") {
-                    LoginTitleView(
+                    AuthHeaderView(
+                        assets: LoginTitleAssets(),
                         title: "Login",
-                        subTitle: "Everything you need to secure and control your home network and connected devices.",
-                        assets: LoginTitleAssets())
+                        subTitle: "Everything you need to secure and control your home network and connected devices.")
                     .padding()
                     .background(.blue)
                 }
@@ -87,29 +87,6 @@ struct LoginComponentsView: View {
                 }
                 
             }
-            
-            TextField("", text: $email)
-            .onChange(of: email, {
-               //∫ print("Changes", email)
-            })
-            .frame(height: 50)
-            .border(.blue)
-            .padding()
-            
-            
-//            TextField("Email", text: $email)
-//                       .onReceive(emailPublisher) { email in
-//                           //self.isValidEmail = email.isValidEmail
-//                           print("Validation", email)
-//                       }
-//                       .onChange(of: email) { newValue in
-//                           emailPublisher.send(newValue)
-//                       }
-//            
-            
-            Spacer()
-            
-          
             
         }
         .navigationTitle("Navigation")

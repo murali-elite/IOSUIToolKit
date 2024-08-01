@@ -63,11 +63,11 @@ public struct ResetPasswordContainerView: View {
 
             VStack(spacing: Constants.spacing) {
                 TextField("", text: $email)
-                    .textFieldViewModifier(title: LoginPageString.email.localized(),
+                    .textFieldViewModifier(title: LoginSignUpContainerString.email.localized(),
                                            titleColor: assets.inputHeaderTextColor,
                                            tintColor: assets.bottomLineColor)
 
-                Text(LoginPageString.location.localized())
+                Text(LoginSignUpContainerString.location.localized())
                     .font(.system(size: Constants.locationFontSize))
                     .dropDownViewModifier(title: $location,
                                           elements: locations,

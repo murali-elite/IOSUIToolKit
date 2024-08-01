@@ -13,28 +13,28 @@ import SwiftUI
 /// the user interface, and can be localized for different languages.
 public enum SplashScreenStrings: String {
     /// The label for the welcome message.
-    case welcom = "Welcom"
+    case welcom = "splash_welcom"
     
     /// The application name.
-    case appName = "CommandIQ"
+    case appName = "splash_app_name"
     
     /// The title for the global network section.
-    case gloablNetworkTitle = "Control Your internet and devices"
+    case gloablNetworkTitle = "splash_globel_network_title"
     
     /// The description for the global network section.
-    case gloablNetworkDescription = "View and manage connectivity of all your devices"
+    case gloablNetworkDescription = "splash_globel_network_description"
     
     /// The title for the home network section.
-    case homeNetworkTitle = "Manage your home"
+    case homeNetworkTitle = "splash_home_network_title"
     
     /// The description for the home network section.
-    case homeNetworkDescription = "Group devices by the people who use them or the places they are located"
+    case homeNetworkDescription = "splash_home_network_description"
     
     /// The title for the security network section.
-    case securityNetworkTitle = "Secure your network"
+    case securityNetworkTitle = "splash_security_network_title"
     
     /// The description for the security network section.
-    case securityNetworkDescription = "Access your wireless password and view any security settings you have"
+    case securityNetworkDescription = "splash_security_network_description"
     
     func localized(bundle: Bundle = .main) -> String {
         /// swiftlint:disable nslocalizedstring_key
@@ -42,3 +42,4 @@ public enum SplashScreenStrings: String {
         /// swiftlint:enable nslocalizedstring_key
     }
 }
+
