@@ -24,6 +24,15 @@ public struct PasswordTextFieldView: View {
     /// The color for the title text.
     var titleColor: Color
 
+    /// The font for the title text.
+    var titleFont: Font
+
+    /// The color for the input  text.
+    var inputTextColor: Color
+
+    /// The font for the input field text.
+    var inputFieldFont: Font
+
     /// The color for the tint of the text field.
     var tintColor: Color
 
@@ -64,12 +73,18 @@ public struct PasswordTextFieldView: View {
                 password: Binding<String>,
                 isSecured: Bool = true,
                 titleColor: Color = .black,
-                tintColor: Color = .black) {
+                inputTextColor: Color = .black,
+                tintColor: Color = .black,
+                titleFont: Font = .subheadline,
+                inputFieldFont: Font = .headline) {
         self.title = title
         self._password = password
         self.isSecured = isSecured
         self.titleColor = titleColor
         self.tintColor = tintColor
+        self.titleFont = titleFont
+        self.inputFieldFont = inputFieldFont
+        self.inputTextColor = inputTextColor
     }
 
     // MARK: - Private Views
@@ -79,8 +94,10 @@ public struct PasswordTextFieldView: View {
     private func textField() -> some View {
         SecureField("", text: $password)
             .foregroundColor(titleColor)
+            .font(inputFieldFont)
             .secureFieldViewModifier(title: title,
                                      isTapped: $isSecured,
+                                     titleFont: titleFont,
                                      titleColor: titleColor,
                                      tintColor: tintColor)
     }
@@ -90,8 +107,10 @@ public struct PasswordTextFieldView: View {
     private func secureTextField() -> some View {
         TextField("", text: $password)
             .foregroundColor(.white)
+            .font(inputFieldFont)
             .secureFieldViewModifier(title: title,
                                      isTapped: $isSecured,
+                                     titleFont: titleFont,
                                      titleColor: titleColor,
                                      tintColor: tintColor)
     }

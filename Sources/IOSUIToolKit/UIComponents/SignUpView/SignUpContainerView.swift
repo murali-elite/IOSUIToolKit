@@ -42,26 +42,26 @@ public struct SignUpContainerView: View {
     public var body: some View {
         VStack {
             inputFieldView($firstName)
-                .textFieldViewModifier(title: LoginSignUpContainerString.firstName.localized(),
+                .textFieldViewModifier(title: AuthContainerViewString.firstName.localized(),
                                        titleColor: assets.headingTextColor,
                                        tintColor: assets.tintColor)
 
             inputFieldView($lastName)
-                .textFieldViewModifier(title: LoginSignUpContainerString.lastName.localized(),
+                .textFieldViewModifier(title: AuthContainerViewString.lastName.localized(),
                                        titleColor: assets.headingTextColor,
                                        tintColor: assets.tintColor)
 
             inputFieldView($email)
-                .textFieldViewModifier(title: LoginSignUpContainerString.email.localized(),
+                .textFieldViewModifier(title: AuthContainerViewString.email.localized(),
                                        titleColor: assets.headingTextColor,
                                        tintColor: assets.tintColor)
 
-            PasswordTextFieldView(title: LoginSignUpContainerString.password.localized(),
+            PasswordTextFieldView(title: AuthContainerViewString.password.localized(),
                                   password: $password,
                                   titleColor: assets.headingTextColor,
                                   tintColor: assets.tintColor)
 
-            Text(LoginSignUpContainerString.location.localized())
+            Text(AuthContainerViewString.location.localized())
                 .foregroundColor(assets.headingTextColor)
                 .dropDownViewModifier(title: $location,
                                       elements: elements,
@@ -69,7 +69,7 @@ public struct SignUpContainerView: View {
                                       tintColor: assets.tintColor)
         }
     }
-    
+
     public init(firstName: Binding<String>,
                 lastName: Binding<String>,
                 email: Binding<String>,

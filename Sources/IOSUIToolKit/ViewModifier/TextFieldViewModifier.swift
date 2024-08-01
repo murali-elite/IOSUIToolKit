@@ -13,8 +13,6 @@ public struct TextFieldViewModifier: ViewModifier {
     // MARK: - Constants
 
     private enum Constants {
-        static let titleFontSize: CGFloat = 15
-        static let titleFontWeight: Font.Weight = .regular
         static let contentMinHeight: CGFloat = 35
         static let dividerHeight: CGFloat = 1
     }
@@ -24,13 +22,14 @@ public struct TextFieldViewModifier: ViewModifier {
     /// The title text to display above the text field.
     var title: String
 
+    /// The font of the title text.
+    var titleFont: Font
+
     /// The color of the title text.
     var titleColor: Color
 
     /// The color of the divider.
     var tintColor: Color
-    
-    var titleFont: Font
 
     // MARK: - Private Methods
 
@@ -68,3 +67,4 @@ public struct TextFieldViewModifier: ViewModifier {
         }
     }
 }
+

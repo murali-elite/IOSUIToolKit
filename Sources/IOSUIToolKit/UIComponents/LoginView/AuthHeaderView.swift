@@ -24,7 +24,7 @@ public struct AuthHeaderView: View {
     // MARK: - Properties
 
     /// An object conforming to `LoginTitleAsstesProtocol` providing assets like fonts and colors.
-    var assets: LoginTitleAsstesProtocol
+    var assets: AuthHeaderAsstesProtocol
     
     /// The main title text displayed in the header.
     var title: String
@@ -72,7 +72,7 @@ public struct AuthHeaderView: View {
     ///   - titleFont: The font used for the title text. The default value is `.title`.
     ///   - subTitle: An optional subtitle text to be displayed below the title. The default is `nil`.
     ///   - subTitleFont: The font used for the subtitle text. The default value is `.subheadline`.
-    public init(assets: LoginTitleAsstesProtocol,
+    public init(assets: AuthHeaderAsstesProtocol,
                 title: String,
                 titleFont: Font = .title,
                 subTitle: String? = nil,

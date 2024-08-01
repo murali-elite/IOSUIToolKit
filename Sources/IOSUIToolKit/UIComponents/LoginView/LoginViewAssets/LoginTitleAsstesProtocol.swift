@@ -9,7 +9,7 @@
 import SwiftUI
 
 /// A protocol that defines the properties for the title assets in a login view.
-public protocol LoginTitleAsstesProtocol {
+public protocol AuthHeaderAsstesProtocol {
     /// The color of the header text.
     var headerTextColor: Color { get set }
 

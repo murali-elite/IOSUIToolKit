@@ -32,8 +32,8 @@ public struct AuthButtonContainerView: View {
 
             // Display the sign-up button
             HeaderButtonView(
-                heading: LoginSignUpContainerString.dontHaveALogIn.localized(),
-                buttonText: LoginSignUpContainerString.signIn.localized(),
+                heading: AuthContainerViewString.dontHaveALogIn.localized(),
+                buttonText: AuthContainerViewString.signIn.localized(),
                 headingColor: assets.headingTextColor,
                 buttonTextColor: assets.secondaryForegroundColor,
                 borderColor: assets.secondaryBorderColor,
@@ -56,7 +56,7 @@ public struct AuthButtonContainerView: View {
     /// - Returns: A `Button` view configured to represent a login action.
     @ViewBuilder
     private func primaryButtonView() -> some View {
-        Button(LoginSignUpContainerString.logIn.localized()) {
+        Button(AuthContainerViewString.logIn.localized()) {
             primaryAction()
         }
         .foregroundColor(assets.primaryForegroundColor)

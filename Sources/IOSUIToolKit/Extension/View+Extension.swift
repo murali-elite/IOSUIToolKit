@@ -25,9 +25,9 @@ extension View {
         modifier(
             TextFieldViewModifier(
                 title: title,
+                titleFont: titleFont,
                 titleColor: titleColor,
-                tintColor: tintColor,
-                titleFont: titleFont
+                tintColor: tintColor
             )
         )
     }
@@ -43,6 +43,7 @@ extension View {
     public func secureFieldViewModifier(
         title: String,
         isTapped: Binding<Bool>,
+        titleFont: Font = .subheadline,
         titleColor: Color = .black,
         tintColor: Color = .gray
     ) -> some View {
@@ -50,6 +51,7 @@ extension View {
             SecureFieldViewModifier(
                 title: title,
                 titleColor: titleColor,
+                titleFont: titleFont,
                 isTapped: isTapped,
                 tintColor: tintColor
             )
@@ -103,5 +105,15 @@ extension View {
     /// - Returns: A view with an underline and the specified background color applied.
     public func underlined(_ backgroundColor: Color = .black) -> some View {
         self.modifier(UnderlineModifier(backgroundColor: backgroundColor))
+    }
+
+    /// Applies a modifier to ignore safe area insets.
+    ///
+    /// On iOS 15.0 and later, this uses the `ignoresSafeArea()` method to extend
+    /// the view into the safe areas. On earlier iOS versions, it uses `edgesIgnoringSafeArea(.all)`.
+    ///
+    /// - Returns: A view that ignores safe area insets.
+   public func ignoreSafeArea() -> some View {
+        modifier(IgnoreSafeAreaViewModifier())
     }
 }

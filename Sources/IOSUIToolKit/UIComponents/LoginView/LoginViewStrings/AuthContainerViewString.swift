@@ -9,7 +9,7 @@
 import SwiftUI
 
 /// Enum for representing login container strings.
-public enum LoginSignUpContainerString: String {
+public enum LoginSignUpContainerString11: String {
     /// The label for the first name field.
     case firstName = "First Name"
 

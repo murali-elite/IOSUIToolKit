@@ -1,6 +1,6 @@
 //
 //  SecureFieldViewModifier.swift
-//  IOSUIToolkit
+//  CalixIOSUIToolkit
 //
 //  Created by labmacuser3 on 7/10/24.
 //  Copyright © 2024 Calix Inc. All rights reserved.
@@ -12,8 +12,6 @@ public struct SecureFieldViewModifier: ViewModifier {
     // MARK: - Constants
 
     private enum Constants {
-        static let titleFontSize: CGFloat = 15
-        static let titleFontWeight: Font.Weight = .regular
         static let contentMinHeight: CGFloat = 35
         static let dividerHeight: CGFloat = 1
     }
@@ -25,6 +23,9 @@ public struct SecureFieldViewModifier: ViewModifier {
 
     /// The color of the title text.
     var titleColor: Color
+
+    /// The font of the title text.
+    var titleFont: Font
 
     /// A binding to track whether the secure field is tapped.
     @Binding var isTapped: Bool
@@ -40,7 +41,7 @@ public struct SecureFieldViewModifier: ViewModifier {
     @ViewBuilder
     private func titleText() -> some View {
         Text(title)
-            .font(.system(size: Constants.titleFontSize, weight: Constants.titleFontWeight))
+            .font(titleFont)
             .foregroundColor(titleColor)
     }
 
