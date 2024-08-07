@@ -1,0 +1,29 @@
+/*
+  Localizable.strings
+  CalixIOSUIToolkitSampleApp
+
+  Created by labmacuser3 on 8/1/24.
+  
+*/
+
+// Auth Container String
+"auth_first_name_title"= "First Name";
+"auth_last_name_title"= "Last Name";
+"auth_email_title"= "Email";
+"auth_password_title"= "Password";
+"auth_location_title"= "Location";
+"auth_forgot_password_title"= "Forgot Password";
+"auth_login"= "Log In";
+"auth_signup"= "Sign Up";
+"auth_signup_header"= "Don't have a Login?";
+"auth_login_header"= "Already registered?";
+
+// Reset Password
+"reset_password_header" = "Reset Password";
+"reset_password_submit" = "Submit";
+"reset_password_cancel" = "Cancel";
+"reset_password_description" = "Enter email address and choose location to reset password";
+
+
+
+

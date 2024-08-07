@@ -27,4 +27,7 @@ public protocol LoginContainerAssetsProtocol {
     
     /// The font used for the forgot password text.
     var forgotPasswordFont: Font { get set }
+    
+    /// The color used for check mark.
+    var checkMarkForgroundColor: Color { get set }
 }

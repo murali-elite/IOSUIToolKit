@@ -81,6 +81,7 @@ public struct SignUpScreenView: View {
     @State private var resetLocation: String = "USA"
     @State private var isPasswordHidden: Bool = true
     @State private var isPopupPresented: Bool = false
+    @State private var isValidEmail: Bool = false
     @State private var detentHeight: CGFloat = 0
     @State var isActiveSignUpPresentation: Bool = false
 
@@ -131,7 +132,7 @@ public struct SignUpScreenView: View {
                                        password: $password,
                                        location: $location,
                                        isPasswordHidden: $isPasswordHidden,
-                                       isPopupPresented: $isPopupPresented,
+                                       isPopupPresented: $isPopupPresented, isValidEmail: $isValidEmail,
                                        locations: locations,
                                        assets: LoginContainerAssets())
 

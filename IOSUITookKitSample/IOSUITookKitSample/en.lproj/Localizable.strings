@@ -19,6 +19,7 @@
 "reset_button_submit" = "Submit";
 "reset_button_cancel" = "Cancel";
 "reset_password_description" = "Enter email address and choose location to reset password";
+
 // Login Container String
 "auth_first_name_title"= "First Name";
 "auth_last_name_title"= "Last Name";

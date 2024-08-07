@@ -69,13 +69,15 @@ extension View {
     ///    The closure provides the index and the string of the selected element.
     public func dropDownViewModifier(title: Binding<String>,
                                      elements: [String],
-                                     textColor: Color = .black,
+                                     menuTextColor: Color = .white,
+                                     menuTextFont: Font = .subheadline,
                                      tintColor: Color = .gray,
                                      selectedElement: @escaping SelectedElementClouser = { _, _ in }) -> some View {
         modifier(
             DropDownViewModifier(title: title,
                                  elements: elements,
-                                 textColor: textColor,
+                                 menuTextColor: menuTextColor,
+                                 menuTextFont: menuTextFont,
                                  tintColor: tintColor,
                                  selectedElement: selectedElement)
         )
@@ -117,3 +119,4 @@ extension View {
         modifier(IgnoreSafeAreaViewModifier())
     }
 }
+

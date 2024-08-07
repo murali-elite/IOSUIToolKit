@@ -71,7 +71,8 @@ public struct ResetPasswordContainerView: View {
                     .font(.system(size: Constants.locationFontSize))
                     .dropDownViewModifier(title: $location,
                                           elements: locations,
-                                          textColor: assets.inputHeaderTextColor,
+                                          menuTextColor: assets.inputHeaderTextColor,
+                                          menuTextFont: .subheadline,
                                           tintColor: assets.bottomLineColor) { _, _ in
                         // Closure body
                     }

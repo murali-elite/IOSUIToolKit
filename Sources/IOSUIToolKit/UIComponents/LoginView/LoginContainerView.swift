@@ -7,6 +7,10 @@
 //
 
 import SwiftUI
+import Combine
+
+/// A closure that takes no parameters and returns no value.
+public typealias OnCallBack = () -> Void
 
 /// A view that contains the login interface, including fields for email, password, and location,
 /// as well as a popup for resetting the password.
@@ -25,9 +29,11 @@ public struct LoginContainerView: View {
     @Binding var location: String
     @Binding var isPasswordHidden: Bool
     @Binding var isPopupPresented: Bool
+    @Binding var isValidEmail: Bool
     var locations: [String]
     /// A closure that is called when a location is selected.
     public var handler: SelectedElementClouser
+    var perform: OnCallBack
 
     /// The content and behavior of the `LoginContainerView`.
     public var body: some View {
@@ -66,8 +72,10 @@ public struct LoginContainerView: View {
                     location: Binding<String>,
                     isPasswordHidden: Binding<Bool>,
                     isPopupPresented: Binding<Bool>,
+                    isValidEmail: Binding<Bool>,
                     locations: [String],
                     assets: LoginContainerAssetsProtocol,
+                    perform: @escaping OnCallBack = {},
                     handler: @escaping SelectedElementClouser = { _, _ in }) {
             self._email = email
             self._password = password
@@ -77,17 +85,45 @@ public struct LoginContainerView: View {
             self.locations = locations
             self.assets = assets
             self.handler = handler
+            self._isValidEmail = isValidEmail
+            self.perform = perform
         }
 
     @ViewBuilder
+    func checkMarkImage() -> some View {
+        let imageName: String = "checkmark"
+        let accessibilityText: Text = Text("")
+        if #available(iOS 15.0, *) {
+            Image(systemName: imageName)
+                .accessibilityLabel(accessibilityText)
+                .foregroundStyle(assets.checkMarkForgroundColor)
+        } else {
+            Image(systemName: imageName)
+                .accessibility(label: accessibilityText)
+                .foregroundColor(assets.checkMarkForgroundColor)
+        }
+    }
+
+    @ViewBuilder
     private func emailFieldView() -> some View {
+        HStack {
             TextField("", text: $email)
                 .font(assets.inputFieldFont)
                 .foregroundColor(assets.inputFieldTextColor)
-                .textFieldViewModifier(title: AuthContainerViewString.email.localized(),
-                                       titleFont: assets.headingFont,
-                                       titleColor: assets.headingTextColor,
-                                       tintColor: assets.tintColor)
+                .autocorrectionDisabled()
+                .autocapitalization(.none)
+                .onReceive(Just(email)) { _ in
+                    self.perform()
+                }
+
+            if isValidEmail {
+                checkMarkImage()
+            }
+        }
+        .textFieldViewModifier(title: AuthContainerViewString.email.localized(),
+                               titleFont: assets.headingFont,
+                               titleColor: assets.headingTextColor,
+                               tintColor: assets.tintColor)
     }
 
     @ViewBuilder
@@ -130,7 +166,8 @@ public struct LoginContainerView: View {
             .font(assets.headingFont)
             .dropDownViewModifier(title: $location,
                                   elements: locations,
-                                  textColor: assets.headingTextColor,
+                                  menuTextColor: assets.headingTextColor,
+                                  menuTextFont: assets.inputFieldFont,
                                   tintColor: assets.tintColor,
                                   selectedElement: handler)
     }

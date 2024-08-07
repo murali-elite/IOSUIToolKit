@@ -16,8 +16,6 @@ public struct DropDownViewModifier: ViewModifier {
     // MARK: - Constants
 
     private enum Constants {
-        static let titleFontSize: CGFloat = 15
-        static let titleFontWeight: Font.Weight = .regular
         static let contentMinHeight: CGFloat = 35
         static let dividerHeight: CGFloat = 1
     }
@@ -30,11 +28,11 @@ public struct DropDownViewModifier: ViewModifier {
     /// An array of strings representing the elements in the dropdown.
     let elements: [String]
 
-    /// The color of the title text.
-    var textColor: Color
+    /// The color of the menu text.
+    var menuTextColor: Color
 
-    /// The font of the title text.
-    var fontSize: CGFloat = 14
+    /// The font of the menu text.
+    var menuTextFont: Font
 
     /// The color of the tint.
     var tintColor: Color
@@ -67,7 +65,8 @@ public struct DropDownViewModifier: ViewModifier {
 
                     DropDownMenuView(title: $title,
                                      elements: elements,
-                                     textColor: textColor,
+                                     menuTextColor: menuTextColor,
+                                     menuFontColor: menuTextFont,
                                      selectedElement: selectedElement)
                         .frame(maxWidth: .infinity, minHeight: Constants.contentMinHeight)
                 }
@@ -79,3 +78,6 @@ public struct DropDownViewModifier: ViewModifier {
         }
     }
 }
+
+
+

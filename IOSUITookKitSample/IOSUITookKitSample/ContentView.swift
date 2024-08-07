@@ -274,7 +274,10 @@ struct SignUpView: View {
             
             Text("Location")
                 .foregroundStyle(assets.titleTextColor)
-                .dropDownViewModifier(title: $location, elements: ["USA"], textColor: assets.titleTextColor, tintColor: assets.borderLineColor)
+                .dropDownViewModifier(title: $location,
+                                      elements: ["USA"],
+                                      menuTextColor: assets.titleTextColor,
+                                      tintColor: assets.borderLineColor)
               
         }
         .padding()

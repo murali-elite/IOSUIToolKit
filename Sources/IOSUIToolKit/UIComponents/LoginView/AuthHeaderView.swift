@@ -17,24 +17,23 @@ public struct AuthHeaderView: View {
         static var subTitleFontSize: CGFloat = 16
         static var verticalSpacing: CGFloat = 10
     }
-    
-    
+
     private var items: [String] = []
 
     // MARK: - Properties
 
     /// An object conforming to `LoginTitleAsstesProtocol` providing assets like fonts and colors.
     var assets: AuthHeaderAsstesProtocol
-    
+
     /// The main title text displayed in the header.
     var title: String
-    
+
     /// The font used for the title text.
     var titleFont: Font
 
     /// The optional subtitle text displayed below the title.
     var subTitle: String?
-    
+
     /// The font used for the subtitle text.
     var subTitleFont: Font
 
@@ -48,13 +47,13 @@ public struct AuthHeaderView: View {
             if #available(iOS 15.0, *) {
                 titleText()
                     .foregroundStyle(assets.headerTextColor)
-                if let subTitle {
+                if subTitle != nil {
                     subTitleText()
                         .foregroundStyle(assets.subHeadingTextColor)
                 }
             } else {
                 titleText()
-                if let subTitle {
+                if subTitle != nil {
                     subTitleText()
                 }
             }

@@ -27,8 +27,11 @@ public struct DropDownMenuView: View {
     /// An array of strings representing the elements in the dropdown.
     let elements: [String]
 
-    /// The color of the title text.
-    var textColor: Color
+    /// The color of the menu text.
+    var menuTextColor: Color
+
+    /// The font of the menu text.
+    var menuFontColor: Font
 
     /// A closure that gets called when an element is selected.
     ///  The closure provides the index and the string of the selected element.
@@ -66,7 +69,7 @@ public struct DropDownMenuView: View {
                 selectedIndex = index
                 selectedElement(index, elements[index])
             }
-            .colorMultiply(textColor == .white ? .black : .white)
+            .colorMultiply(menuTextColor == .white ? .black : .white)
             .frame(maxWidth: .infinity, alignment: .leading)
             .pickerStyle(.automatic)
         }
@@ -77,7 +80,9 @@ public struct DropDownMenuView: View {
     @ViewBuilder
     private func titleText(_ text: String) -> some View {
         Text(text)
-            .foregroundColor(textColor)
+            .foregroundColor(menuTextColor)
+            .font(menuFontColor)
             .frame(maxWidth: .infinity, minHeight: Constants.buttonHeight, alignment: .leading)
     }
 }
+

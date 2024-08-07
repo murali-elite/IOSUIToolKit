@@ -26,6 +26,9 @@ let package = Package(
         .testTarget(
             name: "IOSUIToolKitTests",
             dependencies: ["IOSUIToolKit"],
+            resources: [
+                .process("Localizable.strings") // Adjust path if needed
+            ],
             plugins: [
                 .plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLintPlugins")
             ]),

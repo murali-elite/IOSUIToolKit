@@ -18,6 +18,7 @@ struct LoginComponentsView: View {
     @State var resetLocation: String = "USA"
     @State var isPasswordHidden: Bool = true
     @State var isPopupPresented: Bool = false
+    @State var isValidEmail: Bool = false
     @State private var detentHeight: CGFloat = 0
     private var locations: [String] = ["USA", "Canada", "France", "Germany", "Africa"]
     
@@ -61,9 +62,12 @@ struct LoginComponentsView: View {
                                        location: $location,
                                        isPasswordHidden: $isPasswordHidden,
                                        isPopupPresented: $isPopupPresented,
-                                       locations: locations, assets: LoginContainerAssets())
+                                       isValidEmail: $isValidEmail,
+                                       locations: locations,
+                                       assets: LoginContainerAssets(),
+                                       perform: onTextChangePerfom)
                     .padding()
-                    .background(.blue)
+                    .background(Color.blue)
                     .sheet(isPresented: $isPopupPresented) {
                         ResetPasswordContainerView(email: $resetEmail,
                                                    location: $resetLocation,
@@ -81,8 +85,8 @@ struct LoginComponentsView: View {
                             }
                         }
                     }
-                    .presentationDetents([.height(detentHeight)])
-                    .presentationDragIndicator(.visible)
+//                    .presentationDetents([.height(detentHeight)])
+//                    .presentationDragIndicator(.visible)
                     
                 }
                 
@@ -93,6 +97,19 @@ struct LoginComponentsView: View {
         
     }
     
+    func onTextChangePerfom() {
+        isValidEmail = isValidEmail(email)
+        print("Email", email)
+    }
+    
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
 }
 #Preview {
     LoginComponentsView()
@@ -100,3 +117,9 @@ struct LoginComponentsView: View {
 
 
 
+
+struct ComponentsView: ViewModifier {
+    func body(content: Content) -> some View {
+        <#code#>
+    }
+}

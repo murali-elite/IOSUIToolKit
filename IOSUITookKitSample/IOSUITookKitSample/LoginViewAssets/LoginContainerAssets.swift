@@ -11,6 +11,8 @@ import IOSUIToolKit
 
 /// A structure implementing the `LoginContainerAssets` protocol, providing default colors and fonts for a login container.
 struct LoginContainerAssets: LoginContainerAssetsProtocol {
+    var checkMarkForgroundColor: Color
+    
     /// The font used for the heading text.
     public var headingFont: Font
     
@@ -43,12 +45,14 @@ struct LoginContainerAssets: LoginContainerAssetsProtocol {
                 headingFont: Font = .headline,
                 inputFieldFont: Font = .callout,
                 forgotPasswordFont: Font = .subheadline,
-                inputFieldTextColor: Color = .white) {
+                inputFieldTextColor: Color = .white,
+                checkMarkForgroundColor: Color = .green) {
         self.headingTextColor = headingTextColor
         self.tintColor = tintColor
         self.headingFont = headingFont
         self.inputFieldFont = inputFieldFont
         self.forgotPasswordFont = forgotPasswordFont
         self.inputFieldTextColor = inputFieldTextColor
+        self.checkMarkForgroundColor = checkMarkForgroundColor
     }
 }

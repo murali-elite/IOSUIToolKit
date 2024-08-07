@@ -10,7 +10,7 @@ import SwiftUI
 import IOSUIToolKit
 
 /// A struct that provides colors and fonts for the title assets in a login view.
-struct LoginTitleAssets: LoginTitleAsstesProtocol {
+struct LoginTitleAssets: AuthHeaderAsstesProtocol {
     /// Constants used for font sizes in the login title assets.
     public enum Constants {
         /// The font size for the header text.

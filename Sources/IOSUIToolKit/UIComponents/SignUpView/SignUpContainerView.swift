@@ -65,7 +65,8 @@ public struct SignUpContainerView: View {
                 .foregroundColor(assets.headingTextColor)
                 .dropDownViewModifier(title: $location,
                                       elements: elements,
-                                      textColor: assets.headingTextColor,
+                                      menuTextColor: assets.headingTextColor,
+                                      menuTextFont: .subheadline,
                                       tintColor: assets.tintColor)
         }
     }
