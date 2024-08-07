@@ -28,6 +28,9 @@ public protocol AuthButtonAssetsProtocol {
     /// The background color of the primary button.
     var primaryBackgroundColor: Color { get set }
 
+    /// The text displayed on the header text.
+    var headingText: String { get set }
+
     /// The color of the heading text.
     var headingTextColor: Color { get set }
 
@@ -40,3 +43,6 @@ public protocol AuthButtonAssetsProtocol {
     /// The foreground color of the secondary button text.
     var secondaryForegroundColor: Color { get set }
 }
+
+
+

@@ -46,42 +46,67 @@ public struct ResetPasswordContainerView: View {
     /// The content and behavior of the `ForgotPasswordPopUpView`.
     public var body: some View {
         VStack {
-            VStack(spacing: Constants.verticalPadding) {
-                Text(LoginResetPageString.resetPassword.localized())
-                    .font(.system(size: Constants.titleFontSize))
-
-                if #available(iOS 15.0, *) {
-                    resetDescriptionText()
-                        .foregroundStyle(.black.opacity(Constants.colorOpacity))
-                } else {
-                    resetDescriptionText()
-                }
-            }
-            .multilineTextAlignment(.center)
-            .frame(maxWidth: .infinity)
-            .padding(.vertical)
+            resetHeaderView()
 
             VStack(spacing: Constants.spacing) {
-                TextField("", text: $email)
-                    .textFieldViewModifier(title: AuthContainerViewString.email.localized(),
-                                           titleColor: assets.inputHeaderTextColor,
-                                           tintColor: assets.bottomLineColor)
-
-                Text(AuthContainerViewString.location.localized())
-                    .font(.system(size: Constants.locationFontSize))
-                    .dropDownViewModifier(title: $location,
-                                          elements: locations,
-                                          menuTextColor: assets.inputHeaderTextColor,
-                                          menuTextFont: .subheadline,
-                                          tintColor: assets.bottomLineColor) { _, _ in
-                        // Closure body
-                    }
+                if #available(iOS 15.0, *) {
+                    emailFieldView()
+                        .foregroundStyle(assets.inputFieldTextColor)
+                    locationTextView()
+                        .foregroundStyle(assets.inputFieldTextColor)
+                } else {
+                    emailFieldView()
+                    locationTextView()
+                }
             }
             .padding(.bottom, Constants.padding)
 
-            ResetActionsButtonView(assets: assets, submitAction: submitAction, cancelAction: cancelAction)
+            ResetActionsButtonView(assets: assets,
+                                   submitAction: submitAction,
+                                   cancelAction: cancelAction)
         }
         .padding()
+    }
+
+    @ViewBuilder
+    private func resetHeaderView() -> some View {
+        VStack(spacing: Constants.verticalPadding) {
+            if #available(iOS 15.0, *) {
+                resetHeaderText()
+                    .foregroundStyle(assets.headerTextColor)
+                resetDescriptionText()
+                    .foregroundStyle(assets.descriptionTextColor)
+            } else {
+                resetHeaderText()
+                resetDescriptionText()
+            }
+        }
+        .multilineTextAlignment(.center)
+        .frame(maxWidth: .infinity)
+        .padding(.vertical)
+    }
+
+    @ViewBuilder
+    private func emailFieldView() -> some View {
+        TextField("", text: $email)
+            .font(assets.inputFieldTextFont)
+            .foregroundColor(assets.inputFieldTextColor)
+            .textFieldViewModifier(title: AuthContainerViewString.email.localized(),
+                                   titleFont: assets.inputHeaderTextFont,
+                                   titleColor: assets.headerTextColor,
+                                   tintColor: assets.bottomLineColor)
+    }
+
+    @ViewBuilder
+    private func locationTextView() -> some View {
+        Text(AuthContainerViewString.location.localized())
+            .font(assets.inputHeaderTextFont)
+            .foregroundColor(assets.inputHeaderTextColor)
+            .dropDownViewModifier(title: $location,
+                                  elements: locations,
+                                  menuTextColor: assets.inputHeaderTextColor,
+                                  menuTextFont: assets.inputFieldTextFont,
+                                  tintColor: assets.bottomLineColor)
     }
 
     // MARK: - Initializer
@@ -98,9 +123,9 @@ public struct ResetPasswordContainerView: View {
                 location: Binding<String>,
                 locations: [String],
                 assets: ResetPasswordAssetsProtocol,
+                handler: @escaping SelectedElementClouser = { _, _ in },
                 submitAction: @escaping () -> Void,
-                cancelAction: @escaping () -> Void,
-                handler: @escaping SelectedElementClouser = { _, _ in }) {
+                cancelAction: @escaping () -> Void) {
         self.assets = assets
         self._email = email
         self._location = location
@@ -112,13 +137,20 @@ public struct ResetPasswordContainerView: View {
 
     // MARK: - Private Methods
 
+    @ViewBuilder
+    private func resetHeaderText() -> some View {
+        Text(ResetPasswordString.resetPassword.localized())
+            .font(assets.headerTextFont)
+            .foregroundColor(assets.descriptionTextColor)
+    }
+
     /// Creates the description text for the reset password view.
     ///
     /// - Returns: A view displaying the description text with styling.
     @ViewBuilder
     private func resetDescriptionText() -> some View {
-        Text(LoginResetPageString.resetPasswordDescription.localized())
-            .font(.system(size: Constants.descriptionFontSize))
-            .foregroundColor(.black.opacity(Constants.colorOpacity))
+        Text(ResetPasswordString.resetPasswordDescription.localized())
+            .font(assets.descriptionTextFont)
+            .foregroundColor(assets.descriptionTextColor)
     }
 }

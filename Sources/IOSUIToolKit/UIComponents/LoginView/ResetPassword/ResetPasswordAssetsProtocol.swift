@@ -13,11 +13,26 @@ public protocol ResetPasswordAssetsProtocol {
     /// The color of the header text.
     var headerTextColor: Color { get set }
 
+    /// The font of the header text.
+    var headerTextFont: Font { get set }
+
     /// The color of the description text.
     var descriptionTextColor: Color { get set }
 
+    /// The font of the description text.
+    var descriptionTextFont: Font { get set }
+
     /// The color of the input header text.
     var inputHeaderTextColor: Color { get set }
+
+    /// The font of the input header text.
+    var inputHeaderTextFont: Font { get set }
+
+    /// The color of the input field text.
+    var inputFieldTextColor: Color { get set }
+
+    /// The font of the input field text.
+    var inputFieldTextFont: Font { get set }
 
     /// The color of the bottom line.
     var bottomLineColor: Color { get set }
@@ -33,4 +48,10 @@ public protocol ResetPasswordAssetsProtocol {
 
     /// The foreground color of the cancel button.
     var cancelForgroundColor: Color { get set }
+
+    /// The font of the submit text.
+    var submitTextFont: Font { get set }
+
+    /// The font of the submit text.
+    var cancelTextFont: Font { get set }
 }

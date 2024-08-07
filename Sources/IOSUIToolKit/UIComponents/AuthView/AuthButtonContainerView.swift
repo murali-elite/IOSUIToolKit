@@ -1,5 +1,6 @@
+//
 //  AuthButtonContainerView.swift
-//  IOSUIToolkit
+//  CalixIOSUIToolkit
 //
 //  Created by labmacuser3 on 7/21/24.
 //  Copyright © 2024 Calix Inc. All rights reserved.
@@ -32,11 +33,13 @@ public struct AuthButtonContainerView: View {
 
             // Display the sign-up button
             HeaderButtonView(
-                heading: AuthContainerViewString.dontHaveALogIn.localized(),
-                buttonText: AuthContainerViewString.signIn.localized(),
+                heading: assets.headingText,
+                buttonText: assets.secondaryText,
                 headingColor: assets.headingTextColor,
                 buttonTextColor: assets.secondaryForegroundColor,
                 borderColor: assets.secondaryBorderColor,
+                headerFont: assets.headingTextFont,
+                buttonFont: assets.secondaryTextFont,
                 action: secondayAction
             )
         }
@@ -56,7 +59,7 @@ public struct AuthButtonContainerView: View {
     /// - Returns: A `Button` view configured to represent a login action.
     @ViewBuilder
     private func primaryButtonView() -> some View {
-        Button(AuthContainerViewString.logIn.localized()) {
+        Button(assets.primaryText) {
             primaryAction()
         }
         .foregroundColor(assets.primaryForegroundColor)

@@ -1,5 +1,5 @@
 //
-//  LoginTitleAsstesProtocol.swift
+//  AuthHeaderAsstesProtocol.swift
 //  CalixIOSUIToolkit
 //
 //  Created by labmacuser3 on 7/25/24.
@@ -22,3 +22,4 @@ public protocol AuthHeaderAsstesProtocol {
     /// The font used for the subheading text.
     var subHeadingFont: Font { get set }
 }
+

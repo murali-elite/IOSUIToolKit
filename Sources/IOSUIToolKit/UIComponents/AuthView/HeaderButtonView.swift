@@ -1,5 +1,5 @@
 //
-//  SignUpButtonView.swift
+//  HeaderButtonView.swift
 //  CalixIOSUIToolkit
 //
 //  Created by labmacuser3 on 7/17/24.
@@ -30,8 +30,16 @@ public struct HeaderButtonView: View {
 
     /// The color of the button text.
     var buttonTextColor: Color
+
     /// The color of the button border.
     var borderColor: Color
+
+    /// The color of the button border.
+    var headerFont: Font
+
+    /// The color of the button border.
+    var buttonFont: Font
+
     var action: () -> Void
     // MARK: - Body
 
@@ -60,7 +68,7 @@ public struct HeaderButtonView: View {
 
     // MARK: - Initializer
 
-    /// Initializes a new instance of the `SignUpButtonView`.
+    /// Initializes a new instance of the `HeaderButtonView`.
     ///
     /// - Parameters:
     ///   - heading: The heading text of the view.
@@ -72,6 +80,8 @@ public struct HeaderButtonView: View {
                 headingColor: Color,
                 buttonTextColor: Color,
                 borderColor: Color,
+                headerFont: Font,
+                buttonFont: Font,
                 action: @escaping () -> Void) {
         self.heading = heading
         self.buttonText = buttonText
@@ -79,6 +89,8 @@ public struct HeaderButtonView: View {
         self.buttonTextColor = buttonTextColor
         self.borderColor = borderColor
         self.action = action
+        self.headerFont = headerFont
+        self.buttonFont = buttonFont
     }
 
     // MARK: - Private Methods
@@ -89,7 +101,7 @@ public struct HeaderButtonView: View {
     @ViewBuilder
     private func headingText() -> some View {
         Text(heading)
-            .font(.system(size: Constants.fontSize, weight: Constants.fontWeight))
+            .font(headerFont)
             .foregroundColor(headingColor)
     }
 
@@ -100,8 +112,9 @@ public struct HeaderButtonView: View {
     private func buttonHeadingText() -> some View {
         Text(buttonText)
             .frame(maxWidth: .infinity)
-            .font(.system(size: Constants.fontSize, weight: Constants.fontWeight))
+            .font(buttonFont)
             .buttonStyleViewModifier(borderColor: borderColor)
             .foregroundColor(buttonTextColor)
     }
 }
+

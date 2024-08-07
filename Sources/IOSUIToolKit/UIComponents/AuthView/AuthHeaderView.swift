@@ -13,12 +13,8 @@ public struct AuthHeaderView: View {
     // MARK: - Constants
 
     private enum Constants {
-        static var titleFontSize: CGFloat = 31
-        static var subTitleFontSize: CGFloat = 16
         static var verticalSpacing: CGFloat = 10
     }
-
-    private var items: [String] = []
 
     // MARK: - Properties
 

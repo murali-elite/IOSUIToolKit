@@ -55,15 +55,16 @@ public struct ResetActionsButtonView: View {
 
     @ViewBuilder
     private func submitButtonText() -> some View {
-        Text(LoginResetPageString.submit.localized())
+        Text(ResetPasswordString.submit.localized())
             .buttonStyleViewModifier(backgroundColor: assets.submitBackgroundColor)
             .foregroundColor(assets.submitForgroundColor)
     }
 
     @ViewBuilder
     private func cancelButtonText() -> some View {
-        Text(LoginResetPageString.cancel.localized())
+        Text(ResetPasswordString.cancel.localized())
             .buttonStyleViewModifier(borderColor: assets.cancelForgroundColor)
             .foregroundColor(assets.cancelForgroundColor)
     }
 }
+
