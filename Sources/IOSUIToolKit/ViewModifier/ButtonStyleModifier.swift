@@ -9,15 +9,13 @@
 import SwiftUI
 
 /// A view modifier for styling buttons with a custom background color and border color.
-public struct ButtonStyleViewModifier: ViewModifier {
+public struct ButtonStyleModifier: ViewModifier {
     // MARK: - Constants
 
-    private enum ButtonStyle {
+    private enum Constants {
         static let buttonHeight: CGFloat = 43
         static let cornerRadius: CGFloat = 5
         static let borderWidth: CGFloat = 1
-        static let fontSize: CGFloat = 16
-        static let fontWeight: Font.Weight = .medium
     }
 
     /// The background color of the button.
@@ -32,13 +30,12 @@ public struct ButtonStyleViewModifier: ViewModifier {
     /// - Returns: A view with the applied button styling.
     public func body(content: Content) -> some View {
         content
-            .font(.system(size: ButtonStyle.fontSize, weight: ButtonStyle.fontWeight))
-            .frame(maxWidth: .infinity, minHeight: ButtonStyle.buttonHeight)
+            .frame(maxWidth: .infinity, minHeight: Constants.buttonHeight)
             .background(backgroundColor)
-            .clipShape(RoundedRectangle(cornerRadius: ButtonStyle.cornerRadius))
+            .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius))
             .overlay(
-                RoundedRectangle(cornerRadius: ButtonStyle.cornerRadius)
-                    .stroke(borderColor, lineWidth: ButtonStyle.borderWidth)
+                RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                    .stroke(borderColor, lineWidth: Constants.borderWidth)
             )
     }
 }

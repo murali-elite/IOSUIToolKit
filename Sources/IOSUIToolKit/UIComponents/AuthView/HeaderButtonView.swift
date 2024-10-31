@@ -113,7 +113,7 @@ public struct HeaderButtonView: View {
         Text(buttonText)
             .frame(maxWidth: .infinity)
             .font(buttonFont)
-            .buttonStyleViewModifier(borderColor: borderColor)
+            .buttonStyleModifier(borderColor: borderColor)
             .foregroundColor(buttonTextColor)
     }
 }

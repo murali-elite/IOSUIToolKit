@@ -56,14 +56,14 @@ public struct ResetActionsButtonView: View {
     @ViewBuilder
     private func submitButtonText() -> some View {
         Text(ResetPasswordString.submit.localized())
-            .buttonStyleViewModifier(backgroundColor: assets.submitBackgroundColor)
+            .buttonStyleModifier(backgroundColor: assets.submitBackgroundColor)
             .foregroundColor(assets.submitForgroundColor)
     }
 
     @ViewBuilder
     private func cancelButtonText() -> some View {
         Text(ResetPasswordString.cancel.localized())
-            .buttonStyleViewModifier(borderColor: assets.cancelForgroundColor)
+            .buttonStyleModifier(borderColor: assets.cancelForgroundColor)
             .foregroundColor(assets.cancelForgroundColor)
     }
 }

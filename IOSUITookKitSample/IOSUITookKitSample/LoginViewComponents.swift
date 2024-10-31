@@ -117,9 +117,38 @@ struct LoginComponentsView: View {
 
 
 
+class ViewModel {
+    
+    
+}
 
-struct ComponentsView: ViewModifier {
-    func body(content: Content) -> some View {
-        <#code#>
+extension ViewModel: ViewModelProtocol {
+    var pople: Int {
+        0
     }
+    
+    var name: String {
+        get {
+           ""
+        } set  {
+            ""
+        }
+    }
+    
+    var age: String {
+        get {
+            ""
+        } set  {
+            ""
+        }
+    }
+    
+    
+}
+
+
+protocol ViewModelProtocol {
+    var name: String { get set }
+    var age: String { get set }
+    var pople: Int { get }
 }

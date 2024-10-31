@@ -63,6 +63,6 @@ public struct AuthButtonContainerView: View {
             primaryAction()
         }
         .foregroundColor(assets.primaryForegroundColor)
-        .buttonStyleViewModifier(backgroundColor: assets.primaryBackgroundColor)
+        .buttonStyleModifier(backgroundColor: assets.primaryBackgroundColor)
     }
 }

@@ -89,8 +89,10 @@ extension View {
     ///   - backgroundColor: The background color of the button. Defaults to `.clear`.
     ///   - borderColor: The border color of the button. Defaults to `.clear`.
     /// - Returns: A view with the button style applied.
-    public func buttonStyleViewModifier(backgroundColor: Color = .clear, borderColor: Color = .clear) -> some View {
-        modifier(ButtonStyleViewModifier(backgroundColor: backgroundColor, borderColor: borderColor))
+    public func buttonStyleModifier(backgroundColor: Color = .clear,
+                                        borderColor: Color = .clear) -> some View {
+        modifier(ButtonStyleModifier(backgroundColor: backgroundColor,
+                                     borderColor: borderColor))
     }
 
     /// A view modifier for reading the height of a view.
